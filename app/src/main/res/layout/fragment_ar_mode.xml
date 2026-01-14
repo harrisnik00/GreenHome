@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F1E6">
+
+    <LinearLayout
+        android:id="@+id/ar_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#537F52"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp">
+
+        <TextView
+            android:id="@+id/tv_ar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← AR Mode"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_ar_preview"
+        android:layout_width="320dp"
+        android:layout_height="600dp"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="15dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/iv_ar_main_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/armode" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_scan_room"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/cv_ar_preview"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#2D6A4F"
+        android:text="Scan the room"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+</RelativeLayout>

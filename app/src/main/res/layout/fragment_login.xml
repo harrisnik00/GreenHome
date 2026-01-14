@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/cream_background">
+
+    <TextView
+        android:id="@+id/tv_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome back!"
+        android:textSize="24sp"
+        android:textColor="#537F52"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <TextView
+        android:id="@+id/tv_login_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in your account"
+        android:layout_below="@id/tv_login_title"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_email_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:hint="Enter your email address"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background" />
+
+    <EditText
+        android:id="@+id/et_password_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/et_email_login"
+        android:layout_marginTop="20dp"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background" />
+
+    <Button
+        android:id="@+id/btn_signin_submit"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/et_password_login"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#537F52"
+        android:text="Sign in"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

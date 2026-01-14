@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream_background"
+
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="379dp"
+        android:layout_height="707dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/landingintro" />
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="GreenHome AR"
+        android:textColor="#537F52"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_signup_main"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#537F52"
+        android:text="Sign up"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_login_main"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@id/btn_signup_main"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#537F52"
+        android:text="Log in"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

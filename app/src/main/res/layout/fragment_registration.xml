@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tv_reg_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GreenHome AR"
+            android:textSize="28sp"
+            android:textColor="#537F52"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_reg_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create your account"
+            android:layout_below="@id/tv_reg_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/label_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textStyle="bold"
+            android:layout_below="@id/tv_reg_subtitle"
+            android:layout_marginTop="30dp" />
+
+        <EditText
+            android:id="@+id/et_fullname_reg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/label_name"
+            android:hint="Enter your name and surname"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textStyle="bold"
+            android:layout_below="@id/et_fullname_reg"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:id="@+id/et_email_reg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/label_email"
+            android:hint="Enter your email address"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/label_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textStyle="bold"
+            android:layout_below="@id/et_email_reg"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:id="@+id/et_password_reg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/label_pass"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/label_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password"
+            android:textStyle="bold"
+            android:layout_below="@id/et_password_reg"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:id="@+id/et_confirm_reg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/label_confirm"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btn_signup_submit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@id/et_confirm_reg"
+            android:layout_marginTop="121dp"
+            android:backgroundTint="#537F52"
+            android:text="Sign up"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+</ScrollView>
