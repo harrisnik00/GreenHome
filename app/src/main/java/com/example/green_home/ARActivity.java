@@ -54,9 +54,7 @@ public class ARActivity extends AppCompatActivity {
 
     private void seedCatalog() {
         // Matches your previous project items
-        catalog.add(new Product("Velvet Sofa", 1200.00, "velvet_sofa.glb"));
-        catalog.add(new Product("Oak Dining Table", 450.00, "oak_table.glb"));
-        catalog.add(new Product("Desk Armchair", 200.00, "desk_chair.glb"));
+        catalog.add(new Product("Modern Chair", 125.00, "my_chair.glb"));
     }
 
     private void showCatalogDialog() {
@@ -81,7 +79,7 @@ public class ARActivity extends AppCompatActivity {
 
         ModelRenderable.builder()
                 .setSource(this, modelUri)
-                .setIsFilamentGltf(true)
+
                 .build()
                 .thenAccept(renderable -> {
                     selectedRenderable = renderable;

@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.green_home"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -33,9 +33,8 @@ android {
 
 dependencies {
     implementation("com.google.ar:core:1.45.0")
-    implementation("com.gorisse.thomas.sceneform:sceneform:1.23.0")
-    implementation("com.gorisse.thomas.sceneform:sceneform-ux:1.23.0")
-
+    implementation("com.google.ar.sceneform.ux:sceneform-ux:1.17.1")
+    implementation("com.google.ar.sceneform:core:1.17.1")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
