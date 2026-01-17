@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/arFragment"
+        android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="#AA000000">
+
+        <TextView
+            android:id="@+id/txtSelected"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:text="Selected: (none)" />
+
+        <Button
+            android:id="@+id/btnCatalog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catalog" />
+
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+    </LinearLayout>
+</FrameLayout>

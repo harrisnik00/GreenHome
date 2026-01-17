@@ -1,5 +1,6 @@
 package com.example.green_home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,12 +34,10 @@ public class ARModeFragment extends Fragment {
 
         // 3. Initialize the Scan Button
         Button btnScan = view.findViewById(R.id.btn_scan_room);
-        btnScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // For the prototype, we show a message
-                Toast.makeText(getActivity(), "Scanning room... Surface detected!", Toast.LENGTH_SHORT).show();
-            }
+        btnScan.setOnClickListener(v -> {
+            // Use getActivity() because we are inside a Fragment
+            Intent intent = new Intent(getActivity(), ARActivity.class);
+            startActivity(intent);
         });
 
         return view;
