@@ -83,7 +83,7 @@ public class ARActivity extends AppCompatActivity {
                 .setSource(this, com.google.ar.sceneform.assets.RenderableSource.builder().setSource(this,
                                 Uri.parse(selectedProduct.glbAssetName),
                                 com.google.ar.sceneform.assets.RenderableSource.SourceType.GLB)
-                        .setScale(0.1f)  // Set a default scale so it's not giant
+                        .setScale(1.0f)  // Set a default scale so it's not giant
                         .build())
                 .setRegistryId(selectedProduct.glbAssetName)
                 .build()
@@ -112,7 +112,12 @@ public class ARActivity extends AppCompatActivity {
 
         node.setParent(anchorNode);
         node.setRenderable(renderable);
-        node.setLocalScale(new Vector3(0.1f, 0.1f, 0.1f));
+
+        node.getRotationController().setEnabled(true);
+        node.getScaleController().setEnabled(true);
+        node.getTranslationController().setEnabled(true);
+
+        node.setLocalScale(new Vector3(1.0f, 1.0f, 1.0f));
         node.select(); // Allows user to move/rotate the furniture [cite: 20]
     }
 }
