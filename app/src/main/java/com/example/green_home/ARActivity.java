@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
@@ -18,19 +19,20 @@ import java.util.List;
 
 public class ARActivity extends AppCompatActivity {
 
+    private Product selectedProduct = null;
+    private ModelRenderable selectedRenderable = null;
+
     private ArFragment arFragment;
     private TextView txtSelected;
     private Button btnCatalog, btnAddToCart;
     private final List<Product> catalog = new ArrayList<>();
-    private Product selectedProduct = null;
-    private ModelRenderable selectedRenderable = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ar); // We will create this XML next
 
-        // Initialize UI [cite: 6]
+        // Initialize UI
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
         txtSelected = findViewById(R.id.txtSelected);
         btnCatalog = findViewById(R.id.btnCatalog);
@@ -53,7 +55,7 @@ public class ARActivity extends AppCompatActivity {
     }
 
     private void seedCatalog() {
-        // Matches your previous project items
+
         catalog.add(new Product("Modern Chair", 125.00, "my_chair.glb"));
     }
 
@@ -75,18 +77,29 @@ public class ARActivity extends AppCompatActivity {
 
     private void loadSelectedModel() {
         selectedRenderable = null;
-        Uri modelUri = Uri.parse("file:///android_asset/" + selectedProduct.glbAssetName);
 
+        // This tells Sceneform to treat the file as a raw GLB
         ModelRenderable.builder()
-                .setSource(this, modelUri)
-
+                .setSource(this, com.google.ar.sceneform.assets.RenderableSource.builder().setSource(this,
+                                Uri.parse(selectedProduct.glbAssetName),
+                                com.google.ar.sceneform.assets.RenderableSource.SourceType.GLB)
+                        .setScale(0.1f)  // Set a default scale so it's not giant
+                        .build())
+                .setRegistryId(selectedProduct.glbAssetName)
                 .build()
                 .thenAccept(renderable -> {
                     selectedRenderable = renderable;
-                    Toast.makeText(this, "Ready to place: " + selectedProduct.name, Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Ready to place: " + selectedProduct.name, Toast.LENGTH_SHORT).show();
+                    });
                 })
                 .exceptionally(throwable -> {
-                    Toast.makeText(this, "Error loading model", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() -> {
+                        new AlertDialog.Builder(this)
+                                .setTitle("Loading Error")
+                                .setMessage(throwable.getMessage())
+                                .show();
+                    });
                     return null;
                 });
     }
@@ -96,8 +109,10 @@ public class ARActivity extends AppCompatActivity {
         anchorNode.setParent(arFragment.getArSceneView().getScene());
 
         TransformableNode node = new TransformableNode(arFragment.getTransformationSystem());
+
         node.setParent(anchorNode);
         node.setRenderable(renderable);
+        node.setLocalScale(new Vector3(0.1f, 0.1f, 0.1f));
         node.select(); // Allows user to move/rotate the furniture [cite: 20]
     }
 }
